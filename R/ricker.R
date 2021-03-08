@@ -1,28 +1,31 @@
-# Goal: To model the population dynamics of two competing species, one that has
-# a life phase difference and the other that doesn't. This function uses a
-# Adult/Juvinile Ricker model, This is a discrete competition model and
-# therefore can benefit from the use of a while loop. For more on the model,
-# see:
+#' ricker - a discrete population model
+#'
+#' Goal: To model the population dynamics of two competing species, one that has
+#' a life phase difference and the other that doesn't. This function uses a
+#' Adult/Juvinile Ricker model, This is a discrete competition model and
+#' therefore can benefit from the use of a while loop. For more on the model,
+#' see:
+#' Cushing, J.M., Sheree Levarge, Nakul Chitnis, and Shandelle M. Henson. “Some
+#' Discrete Competition Models and the Competitive Exclusion Principle †.”
+#' Journal of Difference Equations and Applications 10, no. 13–15 (November
+#' 2004): 1139–51. https://doi.org/10.1080/10236190410001652739.
+#' Inputs: The initial count of juveniles and adults of species x and species y.
+#'
+#' Parameters: Juvenile death rate (u), competition coefficients (c11, c12, c21,
+#' c22), and outputs
+#'
+#' Output: Population of species x and species y at timestep i
+#'
+#' Modules:
+#'   - Initialize the outputed dataframe
+#'   - Use initial counts for first timestep calculation
+#'   - Loop discrete function iteration
+#'   - Store and return results at the end
+#'
+#' @param A0 Adult count of species x at timestep 0
+#' @source https://doi.org/10.1080/10236190410001652739
 
-# Cushing, J.M., Sheree Levarge, Nakul Chitnis, and Shandelle M. Henson. “Some
-# Discrete Competition Models and the Competitive Exclusion Principle †.”
-# Journal of Difference Equations and Applications 10, no. 13–15 (November
-# 2004): 1139–51. https://doi.org/10.1080/10236190410001652739.
 
-# Inputs: The initial count of juveniles and adults of species x and species y.
-#
-# Parameters: Juvenile death rate (u), competition coefficients (c11, c12, c21,
-
-# c22), and outputs
-#
-# Output: Population of species x and species y at timestep i
-#
-# Modules:
-#   - Initialize the outputed dataframe
-#   - Use initial counts for first timestep calculation
-#   - Loop discrete function iteration
-#   - Store and return results at the end
-library(checkmate)
 ricker <- function(A0, J0, u, y0, a, b, c11, c12, c21, c22) {
   # Input Validation/Error Checking
 

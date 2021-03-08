@@ -9,11 +9,11 @@
 fish_summary <- function(fish_list, fishtogram = FALSE) {
   # Validation checking
   # is the input an atomic vector?
-  #assert_atomic_vector(fish_list)
+  assert_atomic_vector(fish_list)
   # is the vector mode character? We should warn the user if what they are
   # feeding into the function is a vector of numbers, they may have grabbed the
   # wrong data since we normally call fish by name not number.
-  #check_character(fish_list)
+  check_character(fish_list)
 
   # Change the input vector to a factor data type
   factorized_fish_list <- as.factor(fish_list)
@@ -50,7 +50,6 @@ fish_summary <- function(fish_list, fishtogram = FALSE) {
       )
     )
   } else {
-
     # User didn't want the fishtogram...
     return(
       list(
