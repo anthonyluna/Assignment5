@@ -1,30 +1,37 @@
 #' ricker - a discrete population model
 #'
-#' Goal: To model the population dynamics of two competing species, one that has
-#' a life phase difference and the other that doesn't. This function uses a
-#' Adult/Juvinile Ricker model, This is a discrete competition model and
-#' therefore can benefit from the use of a while loop. For more on the model,
-#' see:
-#' Cushing, J.M., Sheree Levarge, Nakul Chitnis, and Shandelle M. Henson. “Some
-#' Discrete Competition Models and the Competitive Exclusion Principle †.”
-#' Journal of Difference Equations and Applications 10, no. 13–15 (November
-#' 2004): 1139–51. https://doi.org/10.1080/10236190410001652739.
-#' Inputs: The initial count of juveniles and adults of species x and species y.
+#' @description This is an implementation of the adult/juvinile ricker
+#' population model.
 #'
-#' Parameters: Juvenile death rate (u), competition coefficients (c11, c12, c21,
-#' c22), and outputs
+#' @details
 #'
-#' Output: Population of species x and species y at timestep i
+#' This function models the population dynamics of two competing
+#' species, one that has a life phase difference and the other that doesn't.
+#' This function uses a Adult/Juvinile Ricker model, a discrete
+#' competition model and therefore can benefit from the use of a while loop.
 #'
-#' Modules:
-#'   - Initialize the outputed dataframe
-#'   - Use initial counts for first timestep calculation
-#'   - Loop discrete function iteration
-#'   - Store and return results at the end
+#' ## Modules:
+#'  - Initialize the outputed dataframe
+#'  - Use initial counts for first timestep calculation
+#'  - Loop discrete function iteration
+#'  - Store and return results at the end
 #'
 #' @param A0 Adult count of species x at timestep 0
-#' @source https://doi.org/10.1080/10236190410001652739
-
+#' @param J0 Juvenile count of species x at timestep 0 J
+#' @param u Juvenile death rate must be between 0 and 1
+#' @param y0 Total population of species x at timestep 0
+#' @param a Reproduction coefficient for species x
+#' @param b Reproduction coefficient for species y
+#' @param c11 Self competition coefficient for species x
+#' @param c12 Interspecies competition coefficient for species x
+#' @param c21 Self competition coefficient for species y
+#' @param c22 Interspecies competition coefficient for species y
+#' @return timeseries A dataframe with the timestep, the population of species x and species y.
+#' @references Cushing, J.M., Sheree Levarge, Nakul Chitnis, and Shandelle M.
+#'   Henson. "Some Discrete Competition Models and the Competitive Exclusion
+#'   Principle." Journal of Difference Equations and Applications 10, no.
+#'   13–15 (November 2004): 1139–51.
+#'   https://doi.org/10.1080/10236190410001652739.
 
 ricker <- function(A0, J0, u, y0, a, b, c11, c12, c21, c22) {
   # Input Validation/Error Checking
@@ -42,7 +49,7 @@ ricker <- function(A0, J0, u, y0, a, b, c11, c12, c21, c22) {
 
 
   # Initializing the while loop iterator and the output dataframe
-  i <- 1
+  i <- 0
   timeseries <- data.frame(
     "i" = i,
     "xn" = A0 + J0,
@@ -54,7 +61,7 @@ ricker <- function(A0, J0, u, y0, a, b, c11, c12, c21, c22) {
 
   while (i < 1000) {
 
-    if (i == 1) {
+    if (i == 0) {
 
       # Using the initial population measures
       # Juvenile growth rate
