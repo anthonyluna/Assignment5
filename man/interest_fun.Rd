@@ -5,7 +5,7 @@
 \title{interest_fun - a while loop function for calculating compound interest}
 \source{
 compound interest formula:
- https://www.thecalculatorsite.com/articles/finance/compound-interest-formula.php#:~:text=Compound%20interest%2C%20or%20'interest%20on,the%20number%20of%20time%20periods
+https://www.thecalculatorsite.com/articles/finance/compound-interest-formula.php#:~:text=Compound\%20interest\%2C\%20or\%20'interest\%20on,the\%20number\%20of\%20time\%20periods
 }
 \usage{
 interest_fun(balance, target, interest_rate, compound_per_yr, yr)
@@ -29,7 +29,7 @@ first year}
 Purpose: to calculate the final balance in a bank account and amount of years
 it would take to reach a certain target in an account where an initial
 investment earns compound interest. The function uses the compound interest
-formula and contains a `while()` loop which will continue to apply interest on
+formula and contains a \verb{while()} loop which will continue to apply interest on
 a given investment until a given target balance is reached. It will report the
 amount of years it would take to reach that target balance and the actual
 final balance that is achieved at the end of the year in which the target was
