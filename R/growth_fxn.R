@@ -1,16 +1,14 @@
 #' growth_fxn - a simple population growth equation
 #'
-#' @description This simple exponential growth formula can be used to calculate
-#'   population size at a given time.
+#' @description This simple exponential growth formula can be used to calculate population size at a given time.
 #'
-#'   @details Use this formula to calculate a final population size, using any
-#'     give initial population, growth rate, and time.
+#' @details Use this formula to calculate a final population size, using any give initial population, growth rate, and time.
 #'
-#'     @param a Size of initial population
-#'     @param r Growth rate of population of interest
-#'     @param t Time in years
-#'     @param m Maximum population
-#'     @return P The final population size at time t + n, organized in a 2x2
+#' @param a Size of initial population
+#' @param r Growth rate of population of interest
+#' @param t Time in years
+#' @param m Maximum population
+#' @return P The final population size at time t + n, organized in a 2x2
 #'       data frame
 
 growth_fxn <- function(a, r, t, m, P=0) {
