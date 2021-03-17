@@ -14,8 +14,10 @@ library(testthat)
 library(Assignment5)
 library(tidyverse)
 library(checkmate)
+library(here)
 ```
 ```{r ricker-test}
-test_file(file="tests/testthat/ricker_test.R")
+test_dir(path="C:/Users/antho/Documents/Work/Bren/W21/ESM262 Computing/Assignment5/tests/")
 ```
+
 
