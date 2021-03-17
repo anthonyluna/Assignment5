@@ -8,4 +8,4 @@ test_that("air_quality_index_works", {
   expect_match(air_quality_index(pm2.5_data[3]), "Hazardous")
   expect_match(air_quality_index(pm2.5_data[4]), "Beyond U.S. AQ Index")
 }
-          )
+)
